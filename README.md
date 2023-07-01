@@ -28,51 +28,63 @@
 ### Решение
 
 **Сотрудники (employees)**
- - `id` 					int NOT NULL *PK autoincrement*
- - `fullname` 			varchar(200)
- - `hr_links_id`    int NOT NULL *FK hr_links.id*
+- `id` 					        int NOT NULL *PK autoincrement*
+- `last_name` 			   varchar(200)
+- `first_name` 			  varchar(200)
+- `middle_name` 			 varchar(200)
+- `hr_links_id`     int NOT NULL *FK hr_links.id*
 
 
 **Должности (positions)**
- - `id` 					smallint NOT NULL *PK autoincrement*
- - `description` 				varchar(200)
+- `id` 					        smallint NOT NULL *PK autoincrement*
+- `description` 			 varchar(200)
 
 
 **Подразделения (divisions)**
- - `id` 					smallint NOT NULL *PK autoincrement*
- - `type` 			enum('Группа','Отдел','Департамент')
- - `description` 				varchar(200)
+- `id` 					        smallint NOT NULL *PK autoincrement*
+- `type` 			        enum('Группа','Отдел','Департамент')
+- `description` 			 varchar(200)
  
 
 **Проекты (projects)**
- - `id`					int NOT NULL *PK autoincrement*
- - `customer_id` 			int NOT NULL *FK customers.id*
- - `description` 				varchar(200)
+- `id`					         int NOT NULL *PK autoincrement*
+- `customer_id` 			 int NOT NULL *FK customers.id*
+- `description` 			 varchar(200)
 
 
 **Клиенты (customers)**
- - `id` 					int NOT NULL *PK autoincrement*
- - `company_name` 			varchar(200)
+- `id` 					        int NOT NULL *PK autoincrement*
+- `company_name` 		 varchar(200)
 
 
 **Распределение по проектам (teams)**
- - `id` 					int NOT NULL *PK autoincrement*
- - `projects_id` 			int NOT NULL *FK projects.id*
- - `employees_id`				int NOT NULL *FK employees.id*
+- `id`        					 int NOT NULL *PK autoincrement*
+- `projects_id` 			 int NOT NULL *FK projects.id*
+- `employees_id`			 int NOT NULL *FK employees.id*
 
-   
-**Филиалы (offices)**
- - `id` 					smallint NOT NULL *PK autoincrement*
- - `region` 				varchar(200)
- - `city` 				varchar(200)
- - `address` 				varchar(200)
+
+**Адреса Филиалов (offices)**
+- `id` 					        smallint NOT NULL *PK autoincrement*
+- `region_id` 				  smallint NOT NULL *FK region.id*
+- `city_id` 				    smallint NOT NULL *FK city.id*
+- `address` 				    varchar(200)
+
+
+**Регионы (region)**
+- `id`  					       smallint NOT NULL *PK autoincrement*
+- `name` 				       varchar(200)
+
+
+**Города (city)**
+- `id`  					       smallint NOT NULL *PK autoincrement*
+- `name` 				       varchar(200)
 
 
 **Информация о найме (hr_links)**
- - `id` 					int NOT NULL *PK autoincrement*
- - `employees_id`				int NOT NULL *FK employees.id*
- - `startwork_date` 			date
- - `salary_value` 		decimal
- - `offices_id` 			smallint NOT NULL *FK offices.id*
- - `divisions_id` 				smallint NOT NULL *FK divisions.id*
- - `positions_id` 				smallint NOT NULL *FK positions.id*
+- `id` 					        int NOT NULL *PK autoincrement*
+- `employees_id`			 int NOT NULL *FK employees.id*
+- `startwork_date`  date
+- `salary_value` 		 decimal
+- `offices_id` 			  smallint NOT NULL *FK offices.id*
+- `divisions_id` 		 smallint NOT NULL *FK divisions.id*
+- `positions_id` 		 smallint NOT NULL *FK positions.id*
