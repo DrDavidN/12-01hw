@@ -58,9 +58,8 @@
 
 
 **Распределение по проектам (teams)**
-- `id`        					 int NOT NULL *PK autoincrement*
-- `projects_id` 			 int NOT NULL *FK projects.id*
-- `employees_id`			 int NOT NULL *FK employees.id*
+- `projects_id` 			 int NOT NULL *PK FK projects.id*
+- `employees_id`			 int NOT NULL *PK FK employees.id*
 
 
 **Адреса Филиалов (offices)**
